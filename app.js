@@ -14,22 +14,6 @@ app.use(express.urlencoded({ extended: true }));
 app.set('view engine', 'pug');
 app.set('views', './app/views');
 
-// Set the sessions
-var session = require('express-session');
-app.use(session({
-  secret: 'secretkeysdfjsflyoifasd',
-  resave: false,
-  saveUninitialized: true,
-  cookie: { secure: false }
-}));
-
-// Get the functions in the db.js file to use
-const db = require('./services/db');
-
-// Get the student model
-const { Student } = require("./models/student");
-
-const { User } = require("./models/user");
 
 // Create a route for root - /
 app.get("/", function(req, res) {
